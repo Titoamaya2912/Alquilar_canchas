@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Alquila tu cancha</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+
+    </head>
+    <body>
+        <header class="header">
+           <div class="contenedor contenido-header" >
+               
+               <div class="barra">
+                   
+                   <a href="index.html">
+                       <img class="logo-header" src="img/logo2.png" alt="Logo Balon" loading="lazy">
+                   </a>
+                   <nav class="navegacion">
+                       <a href="index.html" class="navegacion_enlace">Iniciar sesión</a>
+                   </nav>
+               </div>
+               
+               
+               <div class="header-texto">
+                   <h1 class="no-margin">SINTÉTICAS A LA MANO</h1> 
+                   <p class="no-margin">Alquila tu cancha sintetica a un click </p>
+               </div>
+           </div>           
+        </header>
+        
+        <main class="contenedor seccion">
+            <h1 class="centrar-texto">Alquila tu cancha</h1>
+            <div id="info-usuario" class="campo" style="margin-bottom: 1rem;"></div>
+          <form class="formulario" id="formulario-reserva">
+            <div class="campo">
+                <label class="campo__label" for="telefono">Número de teléfono:</label>
+                <input 
+                    type="tel" 
+                    id="telefono" 
+                    name="telefono" 
+                    required 
+                    pattern="[0-9]{7,15}" 
+                    inputmode="numeric"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                >  
+            </div>
+
+            <div class="campo">
+                <label class="campo__label" for="cancha">Cancha a elegir:</label>
+                <select id="cancha" name="cancha" required>
+                    <option value="">-- Selecciona una cancha --</option>
+                    <option value="mi-seleccion">Canchas Mi Selección</option>
+                    <option value="riverside">Cancha Riverside</option>
+                    <option value="la-petaca">Canchas Sintéticas La Petaca</option>
+                    <option value="la-futbolera">Canchas La Futbolera</option>
+                    <option value="la-titular">Canchas La Titular</option>
+                    <option value="parque-salud">Canchas Parque de la Salud</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label class="campo__label" for="dia">Fecha:</label>
+                <input 
+                    type="date" 
+                    id="dia" 
+                    name="dia" 
+                    required 
+                    min=""
+                    onfocus="this.min = new Date().toISOString().split('T')[0]"
+                >
+            </div>                
+
+            <div class="campo">
+                <label class="campo__label" for="horario">Hora:</label>
+                <select id="horario" name="horario" required>
+                    <option value="">-- Selecciona un horario --</option>
+                    <option value="10:00-11:00">10:00 a 11:00 AM</option>
+                    <option value="11:00-12:00">11:00 a 12:00 PM</option>
+                    <option value="12:00-13:00">12:00 a 1:00 PM</option>
+                    <option value="13:00-14:00">1:00 a 2:00 PM</option>
+                    <option value="14:00-15:00">2:00 a 3:00 PM</option>
+                    <option value="15:00-16:00">3:00 a 4:00 PM</option>
+                    <option value="16:00-17:00">4:00 a 5:00 PM</option>
+                    <option value="17:00-18:00">5:00 a 6:00 PM</option>
+                    <option value="18:00-19:00">6:00 a 7:00 PM</option>
+                    <option value="19:00-20:00">7:00 a 8:00 PM</option>
+                    <option value="20:00-21:00">8:00 a 9:00 PM</option>
+                    <option value="21:00-22:00">9:00 a 10:00 PM</option>
+                </select>
+            </div>
+
+            <button type="submit" class="boton-verde">Enviar</button>   
+        </form>
+
+        </main>
+        
+        <footer class="footer">
+            <div class="contenedor centrar-texto">
+                   <nav class="navegacion">
+                       <a href="index.html" class="navegacion_enlace">Iniciar sesión</a>
+                   </nav>
+                <p class="copyright">Todos los derechos reservados 2025 &copy;</p>
+
+            </div>
+        </footer>
+        <script src="js/login.js" defer></script>
+        <script src="js/barra.js" defer></script>
+        <script src="js/formulario.js" defer></script>
+
+    </body>
+</html>

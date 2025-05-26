@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Registrate!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
+    </head>
+    <body>
+        
+        <header class="header">
+           <div class="contenedor contenido-header" >
+               
+               <div class="barra">
+                   
+                   <a href="index.html">
+                       <img class="logo-header" src="img/logo2.png" alt="Logo Balon" loading="lazy">
+                   </a>
+                   <nav class="navegacion">
+                       <a href="index.html" class="navegacion_enlace">Iniciar sesión</a>
+                   </nav>
+               </div>
+               
+               
+               <div class="header-texto">
+                   <h1 class="no-margin">SINTÉTICAS A LA MANO</h1> 
+                   <p class="no-margin">Alquila tu cancha sintetica a un click </p>
+               </div>
+           </div>           
+        </header>
+        <main class="contenedor seccion">
+            <h1 class="centrar-texto">Registrate:</h1>
+            <form class ="formulario">
+                <div class="campo">
+                    <label class="campo__label" for="nombre">Nombre:</label>
+                    <input 
+                        type="text" 
+                        placeholder="Tu numbre completo" 
+                        id="nombre"
+                        required
+                    >
+                    
+                    <label class="campo__label" for="email">E-mail:</label>
+                    <input 
+                        type="email" 
+                        placeholder="Tu correo" 
+                        id="email"
+                        required
+                    >
+                    <label class="campo__label" for="contraseña">Contraseña:</label>
+                    <input 
+                        class="campo__field"
+                        type="password" 
+                        placeholder="Tu contraseña" 
+                        id="contraseña"
+                        required
+                    >
+                </div>
+            <div class="check-box">
+               <input type="checkbox" id="visible">
+               <label for="visible">Mostrar contraseña</label>
+            </div>
+                <button type="submit" id="submit" class="boton-verde">Enviar</button> 
+                
+                <div class="opciones">
+                <a href="registro.html" class="opcion">¿No te has registrado?</a>
+                <a href="#" class="opcion">¿Olvidaste tu contraseña?</a>
+                </div>
+            </form>
+        </main>
+             
+        <footer class="footer">
+            <div class="contenedor centrar-texto">
+                   <nav class="navegacion">
+                       <a href="index.html" class="navegacion_enlace">Iniciar sesión</a>
+                       <a href="alquilar.html" class="navegacion_enlace">Alquilar</a>
+                   </nav>
+                <p class="copyright">Todos los derechos reservados 2025 &copy;</p>
+
+            </div>
+        </footer>
+        
+        <script src="js/login.js"></script>
+        <script src="js/registro.js"></script>
+
+    </body>
+</html>

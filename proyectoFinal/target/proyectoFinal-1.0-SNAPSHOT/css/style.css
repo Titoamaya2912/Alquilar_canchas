@@ -1,0 +1,358 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784D3C;
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */  
+    
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+/** Globales **/
+.contenedor {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.5rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+img {
+    max-width: 100%;
+}
+
+/** Utilidades **/
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+.seccion {
+    margin-top: calc(5rem / 2);
+    margin-bottom: calc(5rem / 2);
+}
+/**Header**/
+.header {
+    position: relative;
+    background-image: url(../img/cancha.jpg);
+    height: 38rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    margin-bottom: 6rem;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    z-index: 1;
+}
+
+.contenido-header {
+    position: relative;
+    z-index: 2;
+}
+
+.header-texto {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+
+.header-texto h1{
+    font-size: 4.5rem;
+}
+
+.header-texto P{
+    font-size: 2.5rem;
+}
+.barra{
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navegacion {
+     display: flex;
+     gap: 2rem;
+     
+}
+
+.logo-header{
+    max-width: 100%;
+    width: 12rem;
+    height: auto;
+}
+
+.navegacion_enlace{
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--blanco);
+}
+
+/**Contenido Principal**/
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+.canchas, .nosotros{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3,1fr)
+}
+
+.cancha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #333333;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.cancha img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.contenido-cancha {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.valor_bold{
+    font-weight: 700;
+}
+
+.valor_dinero{
+    font-weight: 400;
+}
+
+.boton-verde{
+    background-color: #71B100;
+    color: var(--blanco);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: 2.5rem;
+    border-radius: 1rem;
+    display: block;
+    border: none;
+
+    &:hover{
+        background-color: darkgreen;
+        cursor: pointer;
+    }
+}
+
+/**Sobre Nosotros**/
+
+.nosotros{
+    margin-top: 4rem;
+    margin-bottom: 13rem;
+}
+
+.iconos{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 100%;
+    margin: 1rem;
+}
+
+.iconos img {
+    filter: brightness(0) invert(1);
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: 3rem;
+}
+
+/**Footer**/
+
+.footer{
+    background-color: #333333 ;
+    padding-bottom: 4rem;
+    padding-top: 2rem;
+    margin-top: 5rem; 
+}
+
+.copyright{
+    color: var(--blanco)
+}
+
+
+/**FORMULARIOO**/
+
+.formulario {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.campo {
+    margin-bottom: 1.5rem;
+}
+
+.campo__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.campo__field,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"]
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #71B100;
+}
+
+.opciones{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 2rem;
+}
+.opcion {
+    color: var(--blanco);
+}
+
+
+
+
+
+
+
+
+/** Reservas **/
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tabla thead {
+    background-color: var(--gris);
+    color: white;
+}
+
+.tabla th, .tabla td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: var(--negro)
+}
+
+.tabla tr:hover {
+    background-color: #f0f0f0;
+}
+
+.sin-reservas {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: #555;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
