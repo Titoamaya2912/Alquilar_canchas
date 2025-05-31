@@ -1,4 +1,24 @@
-document.getElementById("submit").addEventListener("click", function (e) {
+document.addEventListener("DOMContentLoaded", () => {
+  const $customAlert = document.getElementById("custom-alert"),
+        $alertMessage = document.getElementById("alert-message"),
+        $alertClose = document.getElementById("alert-close"),
+        $submit = document.getElementById("submit");
+
+  function showAlert(message, type) {
+    $alertMessage.textContent = message;
+    $customAlert.classList.remove("error", "success");
+    $customAlert.classList.add(type, "show");
+
+    setTimeout(() => {
+      $customAlert.classList.remove("show");
+    }, 3500);
+  }
+
+  $alertClose.addEventListener("click", () => {
+    $customAlert.classList.remove("show");
+  });
+
+  $submit.addEventListener("click", function (e) {
     e.preventDefault();
 
     const nombre = document.getElementById("nombre").value.trim();
@@ -6,19 +26,30 @@ document.getElementById("submit").addEventListener("click", function (e) {
     const contraseña = document.getElementById("contraseña").value.trim();
 
     if (!nombre || !email || !contraseña) {
-        alert("Todos los campos son obligatorios.");
-        return;
+      showAlert("Todos los campos son obligatorios.", "error");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showAlert("El correo electrónico no es válido.", "error");
+      return;
     }
 
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     if (usuarios.some(u => u.email === email)) {
-        alert("Este correo ya está registrado.");
-        return;
+      showAlert("Este correo ya está registrado.", "error");
+      return;
     }
 
     usuarios.push({ nombre, email, contraseña });
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    alert("Registro exitoso. Ahora puedes iniciar sesión.");
-    window.location.href = "login.html";
+
+    showAlert("Registro exitoso. Ahora puedes iniciar sesión.", "success");
+
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 3500);
+  });
 });

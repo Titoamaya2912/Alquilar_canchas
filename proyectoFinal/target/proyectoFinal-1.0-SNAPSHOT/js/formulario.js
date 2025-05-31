@@ -1,18 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
-    console.log("Hola holaa");
   const formulario = document.getElementById("formulario-reserva");
   const infoUsuario = document.getElementById("info-usuario");
 
   const usuarioActivo = JSON.parse(localStorage.getItem("usuario"));
 
+  // Variables para la alerta personalizada
+  const $customAlert = document.getElementById("custom-alert"),
+        $alertMessage = document.getElementById("alert-message"),
+        $alertClose = document.getElementById("alert-close");
+
+  function showAlert(message, type = "error") {
+    $alertMessage.textContent = message;
+
+    $customAlert.classList.remove("error", "success", "warning");
+    $customAlert.classList.add(type);
+
+    $customAlert.classList.add("show");
+
+    setTimeout(() => {
+      $customAlert.classList.remove("show");
+    }, 3000);
+  }
+
+  $alertClose.addEventListener("click", () => {
+    $customAlert.classList.remove("show");
+  });
+
   if (!usuarioActivo) {
-    alert("⚠️ Debes iniciar sesión para hacer una reserva.");
-    window.location.href = "index.html";
+    showAlert("⚠️ Debes iniciar sesión para hacer una reserva.", "warning");
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
     return;
   }
 
-  // Mostrar info del usuario arriba del formulario
   infoUsuario.innerHTML = `
     <p>Reservando como: <strong>${usuarioActivo.nombre}</strong> (${usuarioActivo.email})</p>
   `;
@@ -31,11 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     if (yaReservoEseDia) {
-      alert("⚠️ Solo puedes hacer una reserva por día.");
+      showAlert("⚠️ Solo puedes hacer una reserva por día.", "warning");
+      formulario.reset();
       return;
     }
 
-    // Guardar reserva
     reservas.push({
       email: usuarioActivo.email,
       fecha: fecha,
@@ -45,8 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     localStorage.setItem("reservas", JSON.stringify(reservas));
 
-    alert("✅ Reserva realizada con éxito.");
-    formulario.reset();
+    showAlert("✅ Reserva realizada con éxito.", "success");
+
+    setTimeout(() => {
+      formulario.reset();
+    }, 3000);
   });
 });
-
